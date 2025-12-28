@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-deployment
+  labels:
+    app: nginx
+    project: roboshop
+spec:
+  # modify deployment according to your case
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    app: nginx
+    project: roboshop
+  template:
+    metadata:
+      labels:
+        app: nginx
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+        image: nginx: {{ .Values.deployment.imageVersion }}

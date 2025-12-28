@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  nginx-lb-service
+  labels:
+    app: nginx
+    project: roboshop
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+    project: roboshop
+  ports:
+  - protocol: TCP
+    port: 80 #service port
+    targetPort: {{ .Values.service.targetPort }} #container port (nginx opens 80 container port)

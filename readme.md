@@ -28,3 +28,7 @@ helm rollback nginx # goes to previous version
 ```bash
 helm rollback nginx 1 
 ```
+
+```bash
+helm uninstall nginx 
+```
